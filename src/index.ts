@@ -17,6 +17,11 @@ const app = new Elysia()
       phone: t.Numeric(),
     }),
   })
+  .get("/error", ({ error }) => error(418, "kirifuji Nagisa"))
+  .get("/redirect", ({ set }) => {
+    set.redirect = "https://youtu.be/whpVWVWBW4U?&t=8";
+  })
+  .get("/response", () => new Response("hi"))
   .onError(({ code }) => {
     if (code === "NOT_FOUND") {
       return "Route Not Found";
