@@ -16,6 +16,11 @@ const app = new Elysia()
       phone: t.Numeric(),
     }),
   })
+  .onError(({ code }) => {
+    if (code === "NOT_FOUND") {
+      return "Route Not Found";
+    }
+  })
   .listen(3000);
 
 console.log(
