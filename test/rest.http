@@ -46,3 +46,100 @@ content-type: text/plain;charset=utf-8
 date: Thu, 11 Apr 2024 11:43:06 GMT
 content-length: 7
 ###
+# store
+GET http://localhost:3000/a
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 11:55:19 GMT
+content-length: 1
+###
+# store
+GET http://localhost:3000/b
+
+HTTP/1.1 200  - OK
+content-type: application/json
+date: Thu, 11 Apr 2024 11:55:31 GMT
+content-length: 25
+###
+# store
+GET http://localhost:3000/c
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 11:55:45 GMT
+content-length: 8
+###
+# store
+GET http://localhost:3000/counter
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 11:56:05 GMT
+content-length: 1
+###
+# decorate
+GET http://localhost:3000/log
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 11:58:38 GMT
+content-length: 2
+###
+# Derive
+GET http://localhost:3000/bearer
+Authorization: Bearer is_token_secret
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 12:07:08 GMT
+content-length: 15
+###
+# Remap
+GET http://localhost:3000/elysia-version
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 12:15:34 GMT
+content-length: 1
+###
+# Affix
+GET http://localhost:3000/setup/a
+
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 12:16:13 GMT
+content-length: 1
+###
+# Affix
+GET http://localhost:3000/setup/b
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 12:16:23 GMT
+content-length: 1
+###
+# Affix
+GET http://localhost:3000/setup/c
+
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 12:16:38 GMT
+content-length: 1
+###
+# Affix
+GET http://localhost:3000/setup2
+
+HTTP/1.1 200  - OK
+date: Thu, 11 Apr 2024 12:18:10 GMT
+content-length: 0
+###
+# Reference and value
+GET http://localhost:3000/counter2
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 12:21:24 GMT
+content-length: 1
