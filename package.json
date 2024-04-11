@@ -2,10 +2,13 @@
   "name": "@bun-examples/elysia",
   "version": "1.0.50",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build src/index.ts",
+    "start": "NODE_ENV=production bun src/index.ts",
+    "test": "bun test"
   },
   "dependencies": {
+    "@elysiajs/eden": "^1.0.11",
     "@elysiajs/swagger": "^1.0.3",
     "elysia": "latest"
   },
