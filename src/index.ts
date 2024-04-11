@@ -1,6 +1,6 @@
 import swagger from "@elysiajs/swagger";
 import { Elysia, t } from "elysia";
-
+import { isHtml } from "@elysiajs/html";
 class Logger {
   log(value: string) {
     console.log(value);
@@ -116,7 +116,39 @@ const app = new Elysia()
   // Reference and value
   .state("counter2", 0)
   .get("/counter2", ({ store }) => store.counter2++)
-  // 
+
+  // Local Hook
+  .get("/html", () => "<h1>Hello World</h1>", {
+    afterHandle({ response, set }) {
+      if (isHtml(response)) {
+        set.headers["Content-Type"] = "text/html; charset=utf-8";
+      }
+    },
+  })
+  .get("/hi", () => "<h1>Hi world</h1>")
+  // Interceptor Hook
+  // is ..localhost:3000/
+  // .get("/none", () => "<h1>Hello World</h1>")
+  .get("/none", () => "<h1>Hello World</h1>")
+  // add on for reuse a context for below request
+  .onAfterHandle(({ response, set }) => {
+    if (isHtml(response))
+      set.headers["Content-Type"] = "text/html; charset=utf8";
+  })
+  .get("/", () => "<h1>Hello World</h1>")
+  .get("/hi", () => "<h1>Hello World</h1>")
+  // Order of code
+  .onBeforeHandle(() => {
+    console.log("1");
+  })
+  .onAfterHandle(() => {
+    console.log("3");
+  })
+  .get("/", () => "hi", {
+    beforeHandle() {
+      console.log("2");
+    },
+  })
   .listen(3000);
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`

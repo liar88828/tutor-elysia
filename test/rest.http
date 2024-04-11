@@ -141,5 +141,21 @@ GET http://localhost:3000/counter2
 
 HTTP/1.1 200  - OK
 content-type: text/plain;charset=utf-8
-date: Thu, 11 Apr 2024 12:21:24 GMT
+date: Thu, 11 Apr 2024 12:23:56 GMT
 content-length: 1
+###
+# Local Hook
+GET http://localhost:3000/html
+
+HTTP/1.1 200  - OK
+content-type: text/html; charset=utf-8
+date: Thu, 11 Apr 2024 12:26:34 GMT
+content-length: 20
+###
+# Local Hook
+GET http://localhost:3000/hi
+
+HTTP/1.1 200  - OK
+content-type: text/html; charset=utf8
+date: Thu, 11 Apr 2024 12:32:09 GMT
+content-length: 20
