@@ -3,6 +3,27 @@ http://localhost:3000
 
 HTTP/1.1 200  - OK
 content-type: text/plain;charset=utf-8
-date: Thu, 11 Apr 2024 11:20:45 GMT
+date: Thu, 11 Apr 2024 11:23:38 GMT
 content-length: 12
 ###
+# test param
+GET http://localhost:3000/user/123
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 11:27:02 GMT
+content-length: 3
+###
+# test param
+POST http://localhost:3000/form
+Content-Type:application/json
+
+{
+    "name":"brian",
+    "address":"jetis"
+}
+
+HTTP/1.1 200  - OK
+content-type: application/json
+date: Thu, 11 Apr 2024 11:27:05 GMT
+content-length: 34
