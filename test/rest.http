@@ -26,5 +26,23 @@ Content-Type:application/json
 
 HTTP/1.1 200  - OK
 content-type: application/json
-date: Thu, 11 Apr 2024 11:30:36 GMT
+date: Thu, 11 Apr 2024 11:42:43 GMT
 content-length: 52
+###
+# test error
+GET http://localhost:3000/user_error
+
+HTTP/1.1 404  - Not Found
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 11:42:54 GMT
+content-length: 15
+###
+# test param
+GET http://localhost:3000/id/1/brian
+
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Apr 2024 11:43:06 GMT
+content-length: 7
+###

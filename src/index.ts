@@ -9,6 +9,7 @@ const app = new Elysia()
       id: t.Numeric(),
     }),
   })
+  .get("/id/:id/:name", ({ params: { id, name } }) => id + " " + name)
   .post("/form", ({ body }) => body, {
     body: t.Object({
       name: t.String(),
